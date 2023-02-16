@@ -1,0 +1,62 @@
+{
+  "burgers": [
+    {
+      "id": 1,
+      "name": "X-Salada",
+      "description": "Lanche acompanha pão, hambúguer, mussarela, alface, tomate e maionese",
+      "offer": true,
+      "price": 15.00,
+      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+    },
+    {
+      "id": 2,
+      "name": "X-Burger",
+      "description": "Lanche acompanha pão, hambúguer, mussarela e maionese",
+      "offer": false,
+      "price": 15.00,
+      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+    },
+    {
+      "id": 3,
+      "name": "X-Churrasco",
+      "description": "Lanche acompanha pão francês, contra filé, alface, vinagrete, queijo e maionese",
+      "offer": false,
+      "price": 23.00,
+      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+    },
+    {
+      "id": 4,
+      "name": "X-Egg",
+      "description": "Lanche acompanha pão, hamburguer, queijo, ovo, maionese, alface e tomate",
+      "offer": false,
+      "price": 15.00,
+      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+    },
+    {
+      "id": 5,
+      "name": "X-Calabresa",
+      "description": "Lanche acompanha pão, calabresa, vinagrete, queijo e maionese",
+      "offer": true,
+      "price": 19.00,
+      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+    },
+    {
+      "id": 6,
+      "name": "X-Bacon",
+      "description": "Lanche acompanha pão, hambúrguer, fatias de bacon, queijo, maionese, alface e tomate",
+      "offer": true,
+      "price": 19.30,
+      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+    }   
+  ],
+  "pizza": [
+    {
+      "id": 1,
+      "name": "Calabresa",
+      "description": "Molho de tomate, calabresa e queijo",
+      "offer": false,
+      "price": 25.0,
+      "image": "https://mrricks.com.br/img/promo-pizza-calabresa-2.png"
+    }
+  ]
+}
