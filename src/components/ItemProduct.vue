@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="item">
+  <div class="item" @click="addToCart">
     <div class="container">
       <div class="item--tag" v-show="item.offer">Oferta</div>
       <img :src="item.image" class="item--img" />
@@ -13,18 +13,24 @@
 </template>
 
 <script>
+import Mixin from  '@/mixins/mixins';
+
 export default {
   name: "ItemProduct",
-  filters: {
-    currency(value) {
-      return `R$ ${value.toLocaleString("pt-br", {
-        mininumFractionDigits: 2,
-      })}`;
-    },
-  },
   props: {
     item: {},
   },
+  mixins:[Mixin],
+  methods:{
+    addToCart(){      
+      if(this.isDesktop()){
+        this.$store.dispatch('addToCart', this.item);
+        return;
+      } 
+
+      this.$router.push({ name: 'AddToCart', params: { id: this.item.id } })
+    }
+  }  
 };
 </script>
 
@@ -37,6 +43,9 @@ export default {
   position: relative;
   margin: 20px;
   padding: 20px;
+
+  display: flex;
+  flex-direction: column;
 
   &--tag {
     position: absolute;
@@ -52,15 +61,14 @@ export default {
 
   &--img {
     display: block;
-    margin: 20px auto 0;
-    width: 100px;
-    height: 87px;
+    width: 100%;
+    height: 150px;
+    margin: auto;
   }
 
   &--name {
     font-weight: 600;
     font-size: 18px;
-    margin: 8px auto;
   }
 
   &--description {
@@ -73,7 +81,14 @@ export default {
     color: @primary;
     font-weight: 600;
     font-size: 18px;
-    margin: 8px auto;
+  }
+
+  .content {
+    margin-top: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   @media @tablets {
@@ -82,37 +97,37 @@ export default {
     border: 1px solid @light-grey;
     display: flex;
     margin: 10px 0;
-    padding: 5px 10px;
+    padding: 10px;
+
+    flex-direction: row;
 
     &--img {
       display: block;
-      margin: 20px auto 0;
-      height: 60px;
-      width: 80px;
-      margin: 0 0 10px 0;
+      width: 120px;
+      height: 80px;
+      margin: auto;
     }
 
     &--price {
       text-align: end;
-      margin: 0 auto;
-      margin: 8px;
+      margin: 10px 0 auto;
     }
 
     &--tag {
       position: static;
       order: 1;
       width: fit-content;
+      margin-top: 5px;
     }
 
-    .container{
+    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       margin-right: 20px;
     }
-
-    .content{
+    .content {
       width: 100%;
     }
   }
