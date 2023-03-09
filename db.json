@@ -1,62 +1,132 @@
 {
   "burgers": [
     {
-      "id": 1,
+      "id": "0001",
       "name": "X-Salada",
       "description": "Lanche acompanha pão, hambúguer, mussarela, alface, tomate e maionese",
       "offer": true,
-      "price": 15.00,
-      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+      "price": 32.0,
+      "image": "https://burgerx.com.br/assets/img/galeria/burgers/x-salada.jpg"
     },
     {
-      "id": 2,
+      "id": "0002",
       "name": "X-Burger",
       "description": "Lanche acompanha pão, hambúguer, mussarela e maionese",
       "offer": false,
-      "price": 15.00,
-      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+      "price": 16.3,
+      "image": "https://burgerx.com.br/assets/img/galeria/burgers/x-burger.jpg"
     },
     {
-      "id": 3,
+      "id": "0003",
       "name": "X-Churrasco",
       "description": "Lanche acompanha pão francês, contra filé, alface, vinagrete, queijo e maionese",
       "offer": false,
-      "price": 23.00,
-      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
+      "price": 27.00,
+      "image": "https://burgerx.com.br/assets/img/galeria/burgers/x-futuro.jpg"
     },
     {
-      "id": 4,
+      "id": "0004",
       "name": "X-Egg",
       "description": "Lanche acompanha pão, hamburguer, queijo, ovo, maionese, alface e tomate",
       "offer": false,
-      "price": 15.00,
-      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
-    },
-    {
-      "id": 5,
-      "name": "X-Calabresa",
-      "description": "Lanche acompanha pão, calabresa, vinagrete, queijo e maionese",
-      "offer": true,
-      "price": 19.00,
-      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
-    },
-    {
-      "id": 6,
-      "name": "X-Bacon",
-      "description": "Lanche acompanha pão, hambúrguer, fatias de bacon, queijo, maionese, alface e tomate",
-      "offer": true,
-      "price": 19.30,
-      "image": "https://sachefmio.blob.core.windows.net/fotos/x-egg-73519.jpg"
-    }   
+      "price": 40.3,
+      "image": "https://burgerx.com.br/assets/img/galeria/burgers/x-bacon.jpg"
+    }
   ],
   "pizza": [
     {
-      "id": 1,
+      "id": "0005",
       "name": "Calabresa",
       "description": "Molho de tomate, calabresa e queijo",
       "offer": false,
       "price": 25.0,
-      "image": "https://mrricks.com.br/img/promo-pizza-calabresa-2.png"
+      "image": "https://www.imagensempng.com.br/wp-content/uploads/2021/02/20-2.png"
+    },
+    {
+      "id": "0006",
+      "name": "4 Queijos",
+      "description": "Molho de tomate e 4 queijo",
+      "offer": false,
+      "price": 27.0,
+      "image": "https://img.freepik.com/fotos-premium/pizza-de-4-queijos-com-molho-branco-e-guarnicoes-crocantes-isolada-no-fundo-branco_207126-7195.jpg?w=2000"
+    },
+    {
+      "id": "0007",
+      "name": "Strogonoff",
+      "description": "Molho de tomate e strogonoff de carne",
+      "offer": false,
+      "price": 29.0,
+      "image": "https://www.redecaminhodosaber.com.br/portal/imagens/novidade/pizza-integral-de-strogonoff-de-carne.jpg"
+    }
+  ],
+  "desserts": [
+    {
+      "id": "0008",
+      "name": "Casquinha mista",
+      "description": "Molho de tomate, calabresa e queijo",
+      "offer": false,
+      "price": 4.5,
+      "image": "https://bobs.com.br/media/filer_public_thumbnails/filer_public/5e/95/5e950d4a-0c8b-4117-84b3-4a95be6c60ca/casquinha-mista.png__800x400_subsampling-2.png"
+    },
+    {
+      "id": "0009",
+      "name": "Sorvete de morango",
+      "description": "Sorvete morango na casquinha",
+      "offer": false,
+      "price": 6.0,
+      "image": "https://img.freepik.com/fotos-premium/casquinha-de-sorvete-de-morango-em-um-branco-isolado_104627-2007.jpg"
+    },
+    {
+      "id": "0010",
+      "name": "Milkshake",
+      "description": "Milkshake de chocolate",
+      "offer": false,
+      "price": 10.0,
+      "image": "https://www.anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-2888-a24e01d2b973dc540420374cdd16d450.jpg"
+    }
+  ],
+  "drinks": [
+    {
+      "id":"0011",
+      "name": "Coca-cola lata",
+      "description": "Lata 350ml",
+      "offer": false,
+      "price": 4.5,
+      "image": "https://www.thebakers.com.br/wp-content/uploads/2019/05/coca-600x540-600x540.png"
+    },
+    {
+      "id": "0012",
+      "name": "Guaraná lata",
+      "description": "Lata 350ml",
+      "offer": false,
+      "price": 4.5,
+      "image": "https://io.convertiez.com.br/m/drogal/shop/products/images/8290148/large/refrigerante-guarana-antarctica-lata-350ml_16825.png"
+    },
+    {
+      "id": "0013",
+      "name": "Coca-cola 2L",
+      "description": "Garraga pet de 2 litros",
+      "offer": false,
+      "price": 12,
+      "image": "https://imagensemoldes.com.br/wp-content/uploads/2020/05/Pet-2-Litros-Coca-Cola-PNG.png"
+    }
+  ],
+  "combo": [
+    {
+      "id": "0014",
+      "name": "Combo 1",
+      "description": "1 hamburguer 180g, 1 coca-lata e batata",
+      "offer": false,
+      "price": 50.0,
+      "image": "https://landingo.com.br/wp-content/uploads/2022/10/combo-hamburguer-artesanal-cult-batata-chips-coca-cola-lata-landingo.png"
+    },
+    {
+      "id": "0015",
+      "name": "Combo 2",
+      "description": "2 pizza + uma 1 coca 2 litro",
+      "offer": false,
+      "price": 45.0,
+      "image": "https://quallipizza.com.br/img/combo-familia.jpg"
     }
   ]
 }
