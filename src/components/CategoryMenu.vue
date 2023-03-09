@@ -1,9 +1,6 @@
 <!-- eslint-disable vue/no-unused-vars -->
 <template lang="">
   <div class="category-menu">
-    <div class="logo">
-      <EfRestaurantIcon />
-    </div>
     <ul>
       <li
         v-for="category in categoryList"
@@ -19,7 +16,6 @@
 </template>
 
 <script>
-import EfRestaurantIcon from "../assets/icons/efRestaurantIcon.vue";
 import PizzaIcon from "../assets/icons/PizzaIcon.vue";
 import DessertIcon from "../assets/icons/DessertIcon.vue";
 import DrinksIcon from "../assets/icons/DrinksIcon.vue";
@@ -29,7 +25,6 @@ import BurgerIcon from "../assets/icons/BurgerIcon.vue";
 export default {
   name: "CategoryMenu",
   components: {
-    EfRestaurantIcon,
     PizzaIcon,
     DessertIcon,
     DrinksIcon,
@@ -41,7 +36,7 @@ export default {
       categoryList: [
         { label: "Pizza", icon: "PizzaIcon", id: "pizza" },
         { label: "Bebidas", icon: "DrinksIcon", id: "drinks" },
-        { label: "Doces", icon: "DessertIcon", id: "dessert" },
+        { label: "Doces", icon: "DessertIcon", id: "desserts" },
         { label: "Combos", icon: "ComboIcon", id: "combo" },
         { label: "Burger", icon: "BurgerIcon", id: "burgers" },
       ],
@@ -49,12 +44,12 @@ export default {
     };
   },
   mounted() {
-    this.changeSelectedCategory('pizza')
+    this.changeSelectedCategory("pizza");
   },
   methods: {
     changeSelectedCategory(id) {
       this.selectedCategory = id;
-      this.$store.dispatch('changeCategory', id)
+      this.$store.dispatch("changeCategory", id);
     },
     isActive(id) {
       return this.selectedCategory === id;
@@ -65,7 +60,7 @@ export default {
 
 <style lang="less" scoped>
 .category-menu {
-  width: 130px;
+  min-width: 130px;
   height: 100vh;
   background: @white;
 
@@ -73,8 +68,8 @@ export default {
   align-items: center;
 
   position: relative;
-  
-  .logo{
+
+  .logo {
     width: 100%;
     position: absolute;
     top: 0;
@@ -83,7 +78,7 @@ export default {
     align-items: center;
     justify-content: center;
 
-    svg{
+    svg {
       width: 100%;
       height: auto;
       margin: 10px;
@@ -129,21 +124,33 @@ export default {
     }
   }
 
-  @media @tablets {   
+  @media @tablets {
     width: 100%;
     height: fit-content;
 
-    .logo{
+    .logo {
       display: none;
     }
 
-    ul{
+    ul {
       display: flex;
       margin: 20px;
-      overflow: scroll;
-      justify-content: center;
+      overflow-x: scroll;
 
-      li{
+      &::-webkit-scrollbar {
+        height: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: @dark-grey;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background:@light-grey;
+      }
+
+      li {
         min-width: 78px;
       }
     }
