@@ -16,7 +16,7 @@ export default {
     border-radius: 50%;
     border-top-color: @primary;
     animation: spin 1s linear infinite;
-    margin: auto;    
+    margin: auto;   
   }
 
   @keyframes spin {
