@@ -10,10 +10,6 @@
       <span>Total:</span>
       <span class="price">{{ getCartTotal | currency }}</span>
     </div>
-    <button @click="showModal = true">abrir</button>
-    <Modal :showModal="showModal" @on-modal-close="showModal = false">
-      Teste
-    </Modal>
   </div>
 </template>
 
@@ -21,20 +17,13 @@
 import CartItem from "@/components/CartItem.vue";
 import { mapGetters } from "vuex";
 import Mixin from "@/mixins/mixins";
-import Modal from "@/components/ModalClosedProduct.vue";
 
 export default {
   name: "shoppingCart",
   components: {
     CartItem,
-    Modal,
   },
   mixins: [Mixin],
-  data() {
-    return {
-      showModal: false,
-    };
-  },
   computed: {
     cartList() {
       return this.$store.state.cartList;
