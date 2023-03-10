@@ -5,16 +5,15 @@
     >
     <h2 class="cart--title">Seu pedido</h2>
     <p v-if="hasNoItem">Seu carinho ainda está vazio</p>
-    <CartItem
-      v-for="item in cartList"
-      :key="item.id"
-      :item="item"
-    /> 
+    <CartItem v-for="item in cartList" :key="item.id" :item="item" />
     <div class="cart--total" v-if="!hasNoItem">
       <span>Total:</span>
       <span class="price">{{ getCartTotal | currency }}</span>
     </div>
-    <div v-html="circleIcon"></div>
+    <button @click="showModal = true">abrir</button>
+    <Modal :showModal="showModal" @on-modal-close="showModal = false">
+      Teste
+    </Modal>
   </div>
 </template>
 
@@ -22,14 +21,20 @@
 import CartItem from "@/components/CartItem.vue";
 import { mapGetters } from "vuex";
 import Mixin from "@/mixins/mixins";
-import feather from 'feather-icons'
+import Modal from "@/components/ModalClosedProduct.vue";
 
 export default {
   name: "shoppingCart",
   components: {
     CartItem,
+    Modal,
   },
   mixins: [Mixin],
+  data() {
+    return {
+      showModal: false,
+    };
+  },
   computed: {
     cartList() {
       return this.$store.state.cartList;
@@ -38,9 +43,6 @@ export default {
     hasNoItem() {
       return !this.cartList.length;
     },
-    circleIcon(){
-      return feather.icons.circle.toSvg()
-    }
   },
 };
 </script>
@@ -78,14 +80,14 @@ export default {
   }
 
   .list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-}
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
+  .list-leave-active {
+    transition: all 0.5s ease;
+  }
+  .list-enter-from,
+  .list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
 
   @media @tablets {
     width: 100%;
