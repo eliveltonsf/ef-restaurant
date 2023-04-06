@@ -3,7 +3,7 @@
     <span class="buttons" @click="onDecreaseButtonClick">-</span>
     <span class="number"> {{ item.quantity }}</span>
     <span class="buttons" @click="onIncreaseButtonClick">+</span>
-    <Modal :show-modal="showModal">
+    <ModalCustom :show-modal="showModal">
       <div class="modal-content">
         <h2>Deseja remover esse item do carrinho?</h2>
         <button class="secondary-button" @click="onCancelButtonClick">
@@ -11,17 +11,17 @@
         </button>
         <button @click="onRemoveButtonClick">Sim, remover</button>
       </div>
-    </Modal>
+    </ModalCustom>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
-import Modal from "@/components/ModalClosedProduct.vue";
+import ModalCustom from "@/components/ModalCustom.vue";
 
 export default {
   components: {
-    Modal,
+    ModalCustom,
   },
   props: {
     item: {},
