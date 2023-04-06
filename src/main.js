@@ -5,6 +5,8 @@ import './styles/global.less'
 import router from './router'
 import 'es6-promise/auto'
 import { store } from './store/store';
+import VueMask from 'v-mask'
+Vue.use(VueMask);
 
 Vue.use(Vuex);
 
