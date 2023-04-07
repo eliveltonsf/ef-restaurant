@@ -48,6 +48,11 @@
           </div>
         </div>
 
+        <div class="address-card" v-if="isDeliveryType && hasAddressInfo && savedAddress">
+         <p> {{formData.street.value}},  {{formData.number.value}} </p>
+         <p> {{formData.city.value}} - {{formData.cep.value}} </p>
+        </div>
+
         <a @click="onShowAddressModal" v-if="isDeliveryType">{{addressButtonLabel}}</a>
 
       </div>
@@ -201,7 +206,8 @@ export default {
         },
       },
       showModalAddress: false,
-      deliveryType: 'store'
+      deliveryType: 'store',
+      savedAddress: false
     };
   },
   computed: {
@@ -253,6 +259,7 @@ export default {
       this.triggerAddressFormValidations();
       if (this.isAddressFormValid == 1) {
         this.showModalAddress = false;
+        this.savedAddress = true;
       } else {
         this.showModalAddress = true;
       }
@@ -279,11 +286,6 @@ export default {
       font-size: 22px;
       margin: 20px 0;
     }
-
-
-
-
-
     .address {
       .delivery-type {
         display: flex;
@@ -298,9 +300,22 @@ export default {
         cursor: pointer;
         width: fit-content;
       }
+
+      .address-card{
+        border-radius: 8px;
+        border: 1px solid @dark-grey;
+        padding: 10px 20px;
+        margin: 15px 0;
+        width: fit-content;
+
+        p {
+          font-weight: normal;
+          font-size: 13px;
+          color: @dark-grey;
+          margin: 10px 0;
+        }
+      }
     }
-
-
 
     .radio-options {
       display: flex;
@@ -317,7 +332,6 @@ export default {
       }
     }
   }
-
   .address-container {
     display: flex;
     margin-top: 10px;
@@ -335,7 +349,6 @@ export default {
       }
     }
   }
-
 
   .input-field {
     display: flex;
