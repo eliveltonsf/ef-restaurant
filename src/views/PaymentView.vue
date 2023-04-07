@@ -38,5 +38,12 @@ export default {
     }
   }
 
+  @media @tablets {
+
+    &--content {
+      padding: 50px 20px;
+    }
+  }
+
 }
 </style>

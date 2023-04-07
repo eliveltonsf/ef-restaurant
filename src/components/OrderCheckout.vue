@@ -414,5 +414,38 @@ export default {
       }
     }
   }
+
+  @media @smartphones {
+    width: 100%;
+    padding: 0;
+
+    .modal-content{
+      h1{
+        font-size: 22px;
+      }
+
+      .section-title{
+        font-size: 18px;
+      }
+
+      button{
+        width: 100%;
+        margin-left: 0 !important;
+      }
+    }
+
+    .address-container {
+      flex-wrap: wrap;
+
+      .input-field {
+        &+.input-field {
+          width: 100%;
+          margin: 15px 0;
+        }
+      }
+
+
+    }
+  }
 }
 </style>
