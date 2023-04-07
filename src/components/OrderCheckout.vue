@@ -37,7 +37,7 @@
       <div class="address">
         <p class="section-title">Endereço</p>
 
-        <div class="delivery-type">
+        <div class="radio-container">
           <div class="radio-options">
             <input type="radio" name="delivery-type" id="store" value="store" v-model="deliveryType">
             <label for="store">Retirar na loja</label>
@@ -56,6 +56,24 @@
         <a @click="onShowAddressModal" v-if="isDeliveryType">{{addressButtonLabel}}</a>
 
       </div>
+
+      <div class="payment">
+        <p class="section-title">Pagamento</p>
+        <p >Método de pagamento</p>
+
+        <div class="radio-container">
+          <div class="radio-options">
+            <input type="radio" name="payment-type" id="credit-card" value="credit-card" v-model="paymentType">
+            <label for="store">Cartão</label>
+          </div>
+          <div class="radio-options">
+            <input type="radio" name="payment-type" id="cash" value="cash" v-model="paymentType">
+            <label for="delivery">Dinheiro</label>
+          </div>
+        </div>
+
+      </div>
+
     </form>
     <button class="primary-button" @click="orderItens">Concluir pedido</button>
 
@@ -207,7 +225,8 @@ export default {
       },
       showModalAddress: false,
       deliveryType: 'store',
-      savedAddress: false
+      savedAddress: false,
+      paymentType: false
     };
   },
   computed: {
@@ -231,7 +250,7 @@ export default {
         this.formData.number.value
       );
     },
-    addressButtonLabel(){
+    addressButtonLabel() {
       return this.hasAddressInfo ? 'Editar endereço' : 'Adicionar endereço'
     }
   },
@@ -286,11 +305,13 @@ export default {
       font-size: 22px;
       margin: 20px 0;
     }
-    .address {
-      .delivery-type {
+
+    .radio-container {
         display: flex;
-        margin-bottom: 20px;
+        margin: 20px 0;
       }
+
+    .address {
 
       a {
         color: @pink;
@@ -301,7 +322,7 @@ export default {
         width: fit-content;
       }
 
-      .address-card{
+      .address-card {
         border-radius: 8px;
         border: 1px solid @dark-grey;
         padding: 10px 20px;
@@ -314,6 +335,13 @@ export default {
           color: @dark-grey;
           margin: 10px 0;
         }
+      }
+    }
+
+    .payment {
+
+      p {
+        font-weight: 500;
       }
     }
 
@@ -332,6 +360,7 @@ export default {
       }
     }
   }
+
   .address-container {
     display: flex;
     margin-top: 10px;
