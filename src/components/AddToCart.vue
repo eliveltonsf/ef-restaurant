@@ -1,13 +1,13 @@
 <template lang="">
   <div class="add-cart">
-    <router-link to="/" class="add-cart--go-back" v-show="isMobile()">🠔 Votar</router-link>
+    <router-link to="/" class="add-cart--go-back">🠔 Votar</router-link>
     <Item :item="item" class="add-cart--item"/>
     <div class="add-cart--container">
       <span>Quantidade</span>
       <QuantityItem :item="item" :useStore="false"/>
     </div>
     <p class="add-cart--observations">Observações</p>
-    <textarea v-model="item.observations" rows="10"></textarea>
+    <textarea v-model="item.observations" rows="5"></textarea>
     <button @click="onAddToCartButtonClick"> Adicionar ao carrinho</button>
   </div>
 </template>
@@ -52,6 +52,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .add-cart {
+  max-width: 600px;
+  margin: auto;
   padding: 50px 20px;
 
   &--go-back {
@@ -63,6 +65,7 @@ export default {
 
   &--item{
     margin-top: 50px;
+    margin: 20px auto;
   }
 
   &--container {
@@ -92,10 +95,18 @@ export default {
 
   button{
     width: calc(100% - 40px);
-    position: fixed;
-    bottom: 30px;
-    left: 20px;
-    right: 20px;
+    max-width: 300px;
+    display: block;
+    margin: 30px auto;
+  }
+
+  @media @smartphones {
+    button {
+      position: fixed;
+      bottom: 30px;
+      width: calc(100% - 40px);
+      max-width: unset;
+    }
   }
 }
 </style>

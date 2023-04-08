@@ -1,17 +1,15 @@
-<template lang="">
+<template >
   <div class="cart">
-    <router-link to="/" class="cart--go-back" v-show="isMobile()"
-      >🠔 Votar</router-link
-    >
+    <router-link to="/" class="cart--go-back">🠔 Votar</router-link>
     <h2 class="cart--title">Seu pedido</h2>
     <div class="cart--content">
       <p v-if="hasNoItem">Seu carinho ainda está vazio</p>
       <CartItem v-for="item in cartList" :key="item.id" :item="item" />
     </div>
     <div class="cart--total" v-if="!hasNoItem">
-        <span>Total:</span>
-        <span class="price">{{ getCartTotal | currency }}</span>
-      </div>
+      <span>Total:</span>
+      <span class="price">{{ getCartTotal | currency }}</span>
+    </div>
     <button class="primary-button payment-button" v-if="!!cartList.length" @click="goToPlayment">Finalizar compra</button>
   </div>
 </template>
@@ -37,8 +35,8 @@ export default {
     },
   },
   methods: {
-    goToPlayment(){
-      this.$router.push({name:'Payment'})
+    goToPlayment() {
+      this.$router.push({ name: 'Payment' })
     }
   }
 };
@@ -59,6 +57,7 @@ export default {
     font-size: 18px;
     text-decoration: none;
     color: @black;
+    display: none;
   }
 
   &--title {
@@ -100,13 +99,19 @@ export default {
     transform: translateX(30px);
   }
 
-  @media @tablets {
+  @media @small-desktops {
     width: 100%;
     min-width: unset;
+    max-width: 800px;
+    margin: auto;
     padding: 50px 20px 20px;
 
     .payment-button {
       width: 100%;
+    }
+
+    &--go-back {
+      display: block;
     }
   }
 }
