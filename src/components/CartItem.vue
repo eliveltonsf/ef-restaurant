@@ -151,7 +151,6 @@ export default {
     textarea {
       width: 100%;
       margin: 20px 0;
-      padding: 5px;
     }
 
     button+button {

@@ -64,7 +64,7 @@ export default {
   &--item{
     margin-top: 50px;
   }
-  
+
   &--container {
     display: flex;
     border: 1px solid @light-grey;

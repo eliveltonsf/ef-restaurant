@@ -6,13 +6,13 @@
     <h2 class="cart--title">Seu pedido</h2>
     <div class="cart--content">
       <p v-if="hasNoItem">Seu carinho ainda está vazio</p>
-      <CartItem v-for="item in cartList" :key="item.id" :item="item" />     
+      <CartItem v-for="item in cartList" :key="item.id" :item="item" />
     </div>
     <div class="cart--total" v-if="!hasNoItem">
         <span>Total:</span>
         <span class="price">{{ getCartTotal | currency }}</span>
       </div>
-    <button class="primary-button payment-button" @click="goToPlayment">Finalizar compra</button>
+    <button class="primary-button payment-button" v-if="!!cartList.length" @click="goToPlayment">Finalizar compra</button>
   </div>
 </template>
 
