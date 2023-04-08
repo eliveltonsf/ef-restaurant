@@ -124,8 +124,10 @@ export default {
     }
   }
 
-  @media @tablets {
+  @media @small-desktops {
     width: 100%;
+    max-width: 800px;
+    margin: auto;
     height: fit-content;
 
     .logo {
@@ -135,7 +137,8 @@ export default {
     ul {
       display: flex;
       margin: 20px;
-      overflow-x: scroll;
+
+      justify-content: space-around;
 
       &::-webkit-scrollbar {
         height: 3px;
@@ -153,6 +156,13 @@ export default {
       li {
         min-width: 78px;
       }
+    }
+  }
+
+  @media @smartphones {
+    ul {
+      justify-content: inherit;
+      overflow-x: scroll;
     }
   }
 }

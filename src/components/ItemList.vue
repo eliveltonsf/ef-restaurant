@@ -35,7 +35,7 @@ export default {
       this.isLoading = true
       this.$store.dispatch("changeStateLoading", true);
       this.itemsList = []
-      
+
       setTimeout(() => {
         axios
           .get(`http://localhost:3000/${this.selectedCategory}`)
@@ -62,7 +62,7 @@ export default {
 
   @media @tablets {
     margin: 20px;
-    width: auto;  
+    width: auto;
   }
 }
 .items-list {
@@ -71,6 +71,12 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   align-content: flex-start;
+
+  @media @small-desktops {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+  }
 
   @media @tablets {
     margin: 20px;

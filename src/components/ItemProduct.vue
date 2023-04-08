@@ -22,15 +22,15 @@ export default {
   },
   mixins:[Mixin],
   methods:{
-    addToCart(){      
+    addToCart(){
       if(this.isDesktop()){
         this.$store.dispatch('addToCart', this.item);
         return;
-      } 
+      }
 
       this.$router.push({ name: 'AddToCart', params: { id: this.item.id } })
     }
-  }  
+  }
 };
 </script>
 
@@ -91,7 +91,7 @@ export default {
     justify-content: space-between;
   }
 
-  @media @tablets {
+  @media @smartphones {
     width: 100%;
     height: fit-content;
     border: 1px solid @light-grey;
