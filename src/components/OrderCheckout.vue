@@ -143,12 +143,28 @@
          <button class="primary-button" @click="validadeAddressForm">Adicionar</button>
 
       </div>
-  </Modal>
+    </Modal>
+
+    <Modal :showModal="showInvalidAddressModal" @on-modal-close="hideInvalidAddressModal">
+      <div class="invalid-address-modal">
+        <span class="icon" v-html="warningIcon"></span>
+        <span >Na modalidade delivey é necessario adicionar um endereço valido.</span>
+      </div>
+    </Modal >
+
+    <Modal :showModal="showSuccessModal" @on-modal-close="hideSuccessModal">
+      <div class="success-modal">
+        <span class="icon" v-html="successIcon"></span>
+        <span>Pedido realizado com sucesso.</span>
+      </div>
+    </Modal>
+
   </div>
 </template>
 
 <script>
 import Modal from '@/components/ModalCustom.vue';
+import feather from 'feather-icons';
 
 export default {
   components: {
@@ -224,23 +240,36 @@ export default {
         },
       },
       showModalAddress: false,
+      showInvalidAddressModal: false,
+      showSuccessModal: false,
       deliveryType: 'store',
       savedAddress: false,
-      paymentType: false
+      paymentType: false,
     };
   },
   computed: {
+    warningIcon() {
+      return feather.icons['alert-triangle'].toSvg()
+    },
+    successIcon() {
+      return feather.icons['check-circle'].toSvg()
+    },
     isAddressFormValid() {
       let isValid = true;
       isValid &= this.formData.cep.valid;
       isValid &= this.formData.city.valid;
       isValid &= this.formData.street.valid;
       isValid &= this.formData.number.valid;
-      console.log(isValid)
       return isValid;
     },
     isDeliveryType() {
       return this.deliveryType === 'delivery';
+    },
+    isUserFormDataValid(){
+      let isValid = true;
+      isValid &= this.formData.cellPhone.valid;
+      isValid &= this.formData.name.valid;
+      return isValid;
     },
     hasAddressInfo() {
       return (
@@ -258,6 +287,10 @@ export default {
     triggerValidation() {
       this.formData.name.isValid();
       this.formData.cellPhone.isValid();
+      if (this, this.isDeliveryType) {
+        this.triggerAddressFormValidations();
+        this.showInvalidAddressModal = !this.isAddressFormValid
+      }
     },
     triggerAddressFormValidations() {
       this.formData.cep.isValid();
@@ -267,6 +300,26 @@ export default {
     },
     orderItens() {
       this.triggerValidation();
+      if(!this.isUserFormDataValid || !this.isAddressFormValid) return;
+      this.showSuccessModal = true;
+      const phone = 85996375272
+      let text = `
+      Cliente: ${this.formData.name.value}
+      Contato: ${this.formData.cellPhone.value}
+      Pedido:
+      ${this.$store.state.cartList.map(item => {
+      return `
+      ${item.quantity}x ${item.name}
+      Obs: ${item.observation ? item.observation : ''}
+      `
+      })}
+      `
+
+      text = window.encodeURIComponent(text);
+      window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}
+
+`)
+
     },
     onShowAddressModal() {
       this.showModalAddress = true
@@ -282,7 +335,12 @@ export default {
       } else {
         this.showModalAddress = true;
       }
-
+    },
+    hideInvalidAddressModal() {
+      this.showInvalidAddressModal = false
+    },
+    hideSuccessModal() {
+      this.$router.push({name: 'Home'})
     }
   },
 };
@@ -307,9 +365,9 @@ export default {
     }
 
     .radio-container {
-        display: flex;
-        margin: 20px 0;
-      }
+      display: flex;
+      margin: 20px 0;
+    }
 
     .address {
 
@@ -415,20 +473,33 @@ export default {
     }
   }
 
+  .invalid-address-modal, .success-modal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 20px;
+
+    .icon {
+      margin-bottom: 15px !important;
+    }
+
+  }
+
   @media @smartphones {
     width: 100%;
     padding: 0;
 
-    .modal-content{
-      h1{
+    .modal-content {
+      h1 {
         font-size: 22px;
       }
 
-      .section-title{
+      .section-title {
         font-size: 18px;
       }
 
-      button{
+      button {
         width: 100%;
         margin-left: 0 !important;
       }
