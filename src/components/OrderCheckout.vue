@@ -265,7 +265,7 @@ export default {
     isDeliveryType() {
       return this.deliveryType === 'delivery';
     },
-    isUserFormDataValid(){
+    isUserFormDataValid() {
       let isValid = true;
       isValid &= this.formData.cellPhone.valid;
       isValid &= this.formData.name.valid;
@@ -300,7 +300,7 @@ export default {
     },
     orderItens() {
       this.triggerValidation();
-      if(!this.isUserFormDataValid || !this.isAddressFormValid) return;
+      if (!this.isUserFormDataValid || !this.isAddressFormValid) return;
       this.showSuccessModal = true;
       const phone = 85996375272
       let text = `
@@ -308,7 +308,7 @@ export default {
       Contato: ${this.formData.cellPhone.value}
       Pedido:
       ${this.$store.state.cartList.map(item => {
-      return `
+        return `
       ${item.quantity}x ${item.name}
       Obs: ${item.observation ? item.observation : ''}
       `
@@ -340,7 +340,7 @@ export default {
       this.showInvalidAddressModal = false
     },
     hideSuccessModal() {
-      this.$router.push({name: 'Home'})
+      this.$router.push({ name: 'Home' })
     }
   },
 };
@@ -473,7 +473,8 @@ export default {
     }
   }
 
-  .invalid-address-modal, .success-modal {
+  .invalid-address-modal,
+  .success-modal {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -514,8 +515,6 @@ export default {
           margin: 15px 0;
         }
       }
-
-
     }
   }
 }

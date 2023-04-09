@@ -4,7 +4,7 @@
           <router-link to="/" class="payment--go-back">🠔 Votar</router-link>
           <Order />
         </div>
-        <ShoppingCart v-if="isDesktop()"/>
+        <ShoppingCart class="cart-menu"/>
     </div>
 </template>
 
@@ -38,7 +38,10 @@ export default {
     }
   }
 
-  @media @tablets {
+  @media @small-desktops {
+    .cart-menu{
+      display: none;
+    }
 
     &--content {
       padding: 50px 20px;

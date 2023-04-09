@@ -129,6 +129,7 @@ export default {
     max-width: 800px;
     margin: auto;
     height: fit-content;
+    background: transparent;
 
     .logo {
       display: none;
