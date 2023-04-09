@@ -165,8 +165,10 @@
 <script>
 import Modal from '@/components/ModalCustom.vue';
 import feather from 'feather-icons';
+import Mixin from "@/mixins/mixins";
 
 export default {
+  mixins: [Mixin],
   components: {
     Modal
   },
@@ -302,21 +304,17 @@ export default {
       this.triggerValidation();
       if (!this.isUserFormDataValid || !this.isAddressFormValid) return;
       this.showSuccessModal = true;
-      const phone = 85996375272
-      let text = `
-      Cliente: ${this.formData.name.value}
-      Contato: ${this.formData.cellPhone.value}
-      Pedido:
-      ${this.$store.state.cartList.map(item => {
-        return `
-      ${item.quantity}x ${item.name}
-      Obs: ${item.observation ? item.observation : ''}
-      `
-      })}
-      `
+
+
+
+      let text = `*Cliente:* ${this.formData.name.value}\n*Contato:* ${this.formData.cellPhone.value}\n\n*Pedido:*\n${this.$store.state.cartList.map((item) => {
+        let price = (item.quantity * item.price);
+        const priceCurrent = `${price.toLocaleString("pt-br", { maximumFractionDigits: 2, minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}`
+        return `${item.quantity}x ${item.name} (*${priceCurrent}*)\n*Obs:* ${item.observations ? item.observations : ''} \n\n`
+      })}\n${this.deliveryType === 'store' ? 'Pedido para retirada em loja' : ''}${this.deliveryType === 'delivery' ? `Pedido para entrega no endereço:\n${this.formData.street.value}, ${this.formData.number.value}\n${this.formData.city.value} - ${this.formData.cep.value}` : ''}`
 
       text = window.encodeURIComponent(text);
-      window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}
+      window.open(`https://api.whatsapp.com/send?phone=${this.formData.cellPhone.value}&text=${text}
 
 `)
 
@@ -340,6 +338,7 @@ export default {
       this.showInvalidAddressModal = false
     },
     hideSuccessModal() {
+      this.$store.state.cartList = []
       this.$router.push({ name: 'Home' })
     }
   },
