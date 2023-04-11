@@ -36,7 +36,7 @@ export default {
   },
   created() {
     axios
-      .get(`http://localhost:3000/${this.selectedCategory}/${this.id}`)
+      .get(`https://ef-restaurant-jsonserver.vercel.app/${this.selectedCategory}/${this.id}`)
       .then((response) => {
         this.item = {quantity: 1, observations:'', ...response.data};
         console.log(this.item)

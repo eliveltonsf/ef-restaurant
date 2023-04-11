@@ -38,7 +38,7 @@ export default {
 
       setTimeout(() => {
         axios
-          .get(`http://localhost:3000/${this.selectedCategory}`)
+          .get(`https://ef-restaurant-jsonserver.vercel.app/${this.selectedCategory}`)
           .then((response) => {this.itemsList = response.data; this.isLoading=false;  this.$store.dispatch("changeStateLoading", false);});
       }, 1000);
     },
