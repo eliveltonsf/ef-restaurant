@@ -29,6 +29,7 @@
 * [Badges](#badges)
 * [Status of project](#status)
 * [Project's goal](#objective)
+* [View on web](#domain)
 * [Prerequisites](#prerequisites)
 * [Demo](#demo)
 * [Pictures](#pictures)
@@ -50,7 +51,7 @@ This project was my first contact with Vue.js, its objective was to put into pra
 
 <br />
 
-<h2 id="objective" name="objective">
+<h2 id="domain" name="domain">
 🌐 Domain in Vercel
 </h2>
 
