@@ -55,7 +55,7 @@ This project was my first contact with Vue.js, its objective was to put into pra
 🌐 Domain in Vercel
 </h2>
 
-###   [Check the project in production](https://eliveltonsf.github.io/flappybird-betaclone-browsers/)
+###   [Check the project in production](https://ef-restaurant.vercel.app/#/)
 
 <br/>
 
